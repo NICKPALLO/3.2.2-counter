@@ -9,6 +9,10 @@ class Counter
 private:
 	int value;
 public:
+	Counter()
+	{
+		this->value = 1;
+	}
 	Counter(int value)
 	{
 		this->value = value;
@@ -31,8 +35,11 @@ int main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
+
+	Counter counter;
 	string answer;
 	int value;
+
 	while (true)
 	{
 		cout << "Вы хотите указать начальное значение счетчика?\n Введите да или нет: ";
@@ -41,6 +48,7 @@ int main()
 		{
 			cout << "Введите начальное значение счетчика: ";
 			cin >> value;
+			counter = Counter(value);
 			break;
 		}
 		else if (answer == "нет")
@@ -53,7 +61,6 @@ int main()
 			cout << "Неверный ответ!\n";
 		}
 	}
-	Counter counter(value);
 	while (true)
 	{
 		cout << "Введите команду('+', '-', '=' или 'x') :";
