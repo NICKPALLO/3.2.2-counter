@@ -36,7 +36,7 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	Counter counter;
+	Counter* counter=nullptr;
 	string answer;
 	int value;
 
@@ -48,12 +48,12 @@ int main()
 		{
 			cout << "Введите начальное значение счетчика: ";
 			cin >> value;
-			counter = Counter(value);
+			counter = new Counter(value);
 			break;
 		}
 		else if (answer == "нет")
 		{
-			value = 1;
+			counter = new Counter();
 			break;
 		}
 		else
@@ -67,21 +67,22 @@ int main()
 		cin >> answer;
 		if (answer == "+")
 		{
-			counter.increase();
+			counter->increase();
 		}
 		else if (answer == "-")
 		{
-			counter.decrease();
+			counter->decrease();
 		}
 		else if (answer == "=")
 		{
-			cout << counter.get_value() << endl;
+			cout << counter->get_value() << endl;
 		}
 		else if (answer == "х" || answer == "x")
 		{
 			break;
 		}
 	}
+	delete counter;
 	cout << "До свидания!";
 	return 0;
 }
