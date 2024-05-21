@@ -1,35 +1,10 @@
 #include <iostream>
 #include <string>
 #include <Windows.h>
+#include "Counter.h"
 
 using namespace std;
 
-class Counter
-{
-private:
-	int value;
-public:
-	Counter()
-	{
-		this->value = 1;
-	}
-	Counter(int value)
-	{
-		this->value = value;
-	}
-	void increase()
-	{
-		value++;
-	}
-	void decrease()
-	{
-		value--;
-	}
-	int get_value()
-	{
-		return value;
-	}
-};
 
 int main()
 {
